@@ -1,11 +1,18 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Header, Hero } from '../components'
-import About from '../components/About'
+import {
+	About,
+	ContactMe,
+	Footer,
+	Header,
+	Hero,
+	Projects,
+	WorkExperience
+} from '../components'
 
 const Home: NextPage = () => {
 	return (
-		<div className='flex flex-col items-center snap-y snap-proximity bg-[#252525] text-[#F7F7F7] h-screen overflow-hidden overflow-y-scroll scroll-smooth'>
+		<div className='flex flex-col items-center justify-between bg-[#252525] text-[#F7F7F7] min-h-screen overflow-x-hidden'>
 			<Head>
 				<title>Bryan&#39;s Personal Website</title>
 				<meta
@@ -17,12 +24,11 @@ const Home: NextPage = () => {
 
 			<Header />
 			<Hero />
-			{/* Experience */}
-			{/* About */}
 			<About />
-
-			{/* Projects */}
-			{/* Contact me */}
+			<WorkExperience />
+			<Projects />
+			<ContactMe />
+			<Footer />
 		</div>
 	)
 }

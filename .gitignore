@@ -29,6 +29,8 @@ yarn-error.log*
 # local env files
 .env*.local
 
+sanity/node_modules
+
 # vercel
 .vercel
 

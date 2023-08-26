@@ -1,3 +1,11 @@
+export { default as About } from './About';
 export { default as BackgroundCircles } from './BackgroundCircles';
+export { default as ContactForm } from './ContactForm';
+export { default as ContactMe } from './ContactMe';
+export { default as Footer } from './Footer';
 export { default as Header } from './Header';
 export { default as Hero } from './Hero';
+export { default as ProjectCard } from './ProjectCard';
+export { default as Projects } from './Projects';
+export { default as WorkExperience } from './WorkExperience';
+export { default as WorkExperienceCard } from './WorkExperienceCard';

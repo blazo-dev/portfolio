@@ -18,8 +18,8 @@ function Hero() {
 
 	return (
 		<section
-			id='hero'
-			className='relative flex flex-col gap-6 w-full items-center justify-center snap-start min-h-[100vh] p-5 max-w-7xl mx-auto text-[#F7F7F7] text-center'
+			id='home'
+			className='relative flex flex-col gap-6 w-full items-center justify-center min-h-[100vh] p-5 max-w-7xl mx-auto text-[#F7F7F7] text-center'
 		>
 			<BackgroundCircles />
 			<p className='z-10 h-[60px] mt-[50px] md:h-auto text-2xl md:text-3xl lg:text-4xl font-bold'>
@@ -43,9 +43,6 @@ function Hero() {
 					</Link>
 					<Link href='#experience' className='hero-button'>
 						Experience
-					</Link>
-					<Link href='#Education' className='hero-button'>
-						Education
 					</Link>
 					<Link href='#projects' className='hero-button'>
 						Projects
