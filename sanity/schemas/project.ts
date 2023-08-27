@@ -19,6 +19,11 @@ export default defineType({
       },
     },
     {
+      name: 'repository',
+      title: 'Repository',
+      type: 'string',
+    },
+    {
       name: 'url',
       title: 'URL',
       type: 'string',
@@ -27,7 +32,7 @@ export default defineType({
       name: 'technologies',
       title: 'Technologies',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'skill'}}],
+      of: [{type: 'reference', to: {type: 'technology'}}],
     },
   ],
 })

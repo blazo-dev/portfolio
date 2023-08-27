@@ -1,7 +1,11 @@
 import React from 'react'
 import WorkExperienceCard from './WorkExperienceCard'
+import { Experience } from '../types'
 
-function WorkExperience() {
+interface Props {
+	experience: Experience[]
+}
+function WorkExperience({ experience }: Props) {
 	return (
 		<section
 			className='relative flex flex-col items-center justify-center pt-40 p-5 sm:px-0 md:flex-row gap-6 max-w-7xl mx-auto min-h-screen'
@@ -11,9 +15,9 @@ function WorkExperience() {
 				Experience
 			</h2>
 			<div className='flex flex-wrap justify-center gap-6 h-full w-full'>
-				<WorkExperienceCard />
-				<WorkExperienceCard />
-				{/* <WorkExperienceCard /> */}
+				{experience.map((item) => (
+					<WorkExperienceCard key={item._id} experience={item} />
+				))}
 			</div>
 		</section>
 	)

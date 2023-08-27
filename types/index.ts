@@ -1,4 +1,4 @@
 export * from './FetchTypes';
 export * from './FormTypes';
-export * from './Projects';
+export * from './SanityType';
 export * from './WorkExperienceItem';

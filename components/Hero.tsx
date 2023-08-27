@@ -2,14 +2,16 @@ import { Cursor, useTypewriter } from 'react-simple-typewriter'
 import BackgroundCircles from './BackgroundCircles'
 import Image from 'next/image'
 import Link from 'next/link'
+import { PageInfo } from '../types/SanityType'
+import { urlFor } from '../sanity'
 
-function Hero() {
+interface Props {
+	pageInfo: PageInfo
+}
+
+function Hero({ pageInfo: { heroImage, heroPhrase, role } }: Props) {
 	const [text] = useTypewriter({
-		words: [
-			'Hey, this is Bryan Lazo.',
-			'Welcome to my digital world!',
-			'Where code and creativity converge.'
-		],
+		words: heroPhrase,
 		loop: true,
 		delaySpeed: 2500,
 		typeSpeed: 50,
@@ -26,7 +28,7 @@ function Hero() {
 				{text} <Cursor cursorColor='#F8C43A' />
 			</p>
 			<Image
-				src='/images/hero.webp'
+				src={urlFor(heroImage).url()}
 				className='block z-10 object-cover rounded-full bg-[#FAC213]'
 				alt='Bryan Lazo Picture'
 				width={250}
@@ -34,7 +36,7 @@ function Hero() {
 			/>
 			<div className='relative z-10 flex flex-col gap-4 justify-center items-center text-center'>
 				<h1 className='text-sm md:text-base uppercase text-gray-500 tracking-[8px] md:tracking-[10px]'>
-					FrontEnd Developer
+					{role}
 				</h1>
 
 				<div className='flex flex-wrap justify-center md:flex-row gap-4 py-2'>

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { FormData, FormErrors, FormResponse } from '../types'
 import { hasEmptyValue } from '../lib'
-import { useHttp } from './useHttp'
+import { handleHttp } from './handleHttp'
 
 export function useForm(
 	initialForm: FormData,
@@ -9,7 +9,7 @@ export function useForm(
 	validateForm: (form: FormData) => FormErrors
 ) {
 	const [form, setForm] = useState<FormData>(initialForm)
-	const { post } = useHttp()
+	const { post } = handleHttp()
 	const [errors, setErrors] = useState<FormErrors>(initialErrors)
 	const [isSending, setIsSending] = useState<boolean>(false)
 	const [response, setResponse] = useState<FormResponse>({

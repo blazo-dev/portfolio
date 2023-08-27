@@ -2,8 +2,13 @@ import React from 'react'
 import { SocialIcon } from 'react-social-icons'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { Social } from '../types'
 
-function Header() {
+type Props = {
+	socials: Social[]
+}
+
+function Header({ socials }: Props) {
 	return (
 		<header className='flex items-start justify-between p-5 fixed top-0 w-full rounded-b-md max-w-7xl mx-auto z-20 xl:items-center bg-[#2b2b2b8f] text-[#F8C43A] backdrop-blur-md'>
 			<motion.div
@@ -12,19 +17,16 @@ function Header() {
 				transition={{ duration: 1.3 }}
 				className='flex items-center'
 			>
-				{/* Social icons */}
-				<SocialIcon
-					url='https://linkedin.com/in/bryanlazodev/'
-					target='_blank'
-					fgColor='currentColor'
-					bgColor='transparent'
-				/>
-				<SocialIcon
-					url='https://linkedin.com/in/bryanlazodev/'
-					target='_blank'
-					fgColor='currentColor'
-					bgColor='transparent'
-				/>
+				{socials.map(({ _id, url }: Social) => (
+					<SocialIcon
+						key={_id}
+						url={url}
+						fgColor='currentColor'
+						bgColor='transparent'
+						target='_blank'
+						className='cursor-pointer'
+					/>
+				))}
 			</motion.div>
 			<motion.div
 				initial={{ x: 500, opacity: 0, scale: 0.5 }}

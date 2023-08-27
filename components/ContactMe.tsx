@@ -1,7 +1,12 @@
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/solid'
 import ContactForm from './ContactForm'
+import { PageInfo } from '../types/SanityType'
 
-function ContactMe() {
+interface Props {
+	pageInfo: PageInfo
+}
+
+function ContactMe({ pageInfo: { email, phoneNumber } }: Props) {
 	return (
 		<section
 			id='contact'
@@ -22,15 +27,15 @@ function ContactMe() {
 
 				<div className='grid gap-4'>
 					<div className='flex items-center justify-center'>
-						<a href='tel:+50377387979' className='contact-link'>
+						<a href={`tel:${phoneNumber}`} className='contact-link'>
 							<PhoneIcon className='text-[currentColor] h-7 w-7 animate-pulse' />
-							+50377387979
+							{phoneNumber}
 						</a>
 					</div>
 					<div className='flex items-center justify-center'>
-						<a href='mailto:blazo.dev@gmail.com' className='contact-link'>
+						<a href={`mailto:${email}`} className='contact-link'>
 							<EnvelopeIcon className='text-[currentColor] h-7 w-7 animate-pulse' />
-							blazo.dev@gmail.com
+							{email}
 						</a>
 					</div>
 				</div>

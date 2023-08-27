@@ -2,30 +2,10 @@ import { motion } from 'framer-motion'
 import { Project } from '../types'
 import ProjectCard from './ProjectCard'
 
-function Projects() {
-	const projects: Project[] = [
-		{
-			id: 1,
-			title: 'Country API Rest',
-			description:
-				"If you're wanting to test your JavaScript skills this is the challenge for you. Use whichever JS framework you prefer and pull data from the REST Countries API.",
-			image: '/images/hero.webp'
-		},
-		{
-			id: 2,
-			title: 'Calculator App',
-			description:
-				"This calculator app will be a great test of your CSS and JS skills especially. If you're wanting to practice using Grid, this challenge will be perfect for you!",
-			image: '/images/hero.webp'
-		},
-		{
-			id: 3,
-			title: 'Project 3',
-			description: 'Description 3',
-			image: '/images/hero.webp'
-		}
-	]
-
+interface Props {
+	projects: Project[]
+}
+function Projects({ projects }: Props) {
 	return (
 		<motion.section
 			initial={{ opacity: 0 }}
@@ -40,9 +20,10 @@ function Projects() {
 			</h2>
 			<div className='w-screen absolute h-[500px] bg-[#F8C43A]/10 z-1 -skew-y-12 top-[25%]' />
 			<div className='relative scroll-custom flex items-center justify-between gap-20 md:gap-44 h-full w-full overflow-y-hidden overflow-x-scroll snap-mandatory snap-x px-20 md:px-96'>
-				{projects.map((project) => (
+				{projects.map((project, index) => (
 					<ProjectCard
-						key={project.id}
+						key={project._id}
+						position={index + 1}
 						numberProjects={projects.length}
 						{...project}
 					/>

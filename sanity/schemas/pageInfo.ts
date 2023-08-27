@@ -35,6 +35,12 @@ export default defineType({
       of: [{type: 'string'}],
     },
     {
+      name: 'heroPhrase',
+      title: 'HeroPhrase',
+      type: 'array',
+      of: [{type: 'string'}],
+    },
+    {
       name: 'profileImage',
       title: 'ProfileImage',
       type: 'image',

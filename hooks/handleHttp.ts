@@ -1,6 +1,6 @@
 import type { CustomFetchOptions } from '../types'
 
-export const useHttp = () => {
+export const handleHttp = () => {
 	const customFetch = (endpoint: string, options: CustomFetchOptions) => {
 		const defaultHeader = {
 			accept: 'application/json'
