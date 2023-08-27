@@ -39,8 +39,8 @@ function ProjectCard({
 						key={technology._id}
 						src={urlFor(technology.image).url()}
 						alt={technology.title}
-						width={32}
-						height={32}
+						width={36}
+						height={36}
 					/>
 				))}
 			</div>
@@ -60,6 +60,7 @@ function ProjectCard({
 						label='Live Demo'
 						target='_blank'
 						className='hover:text-[#F8C43A] transition-colors duration-500 cursor-pointer'
+					
 					/>
 					<SocialIcon
 						url={repository}
