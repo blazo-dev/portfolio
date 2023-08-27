@@ -9,23 +9,31 @@ import {
 	WorkExperience
 } from '../components'
 import { handleHttp } from '../hooks'
-import { Experience, PageInfo, Project, Social, Technology } from '../types'
+import { Experience, PageInfo, Project, Social } from '../types'
+import { useEffect, useState } from 'react'
 
 interface Props {
-	pageInfo: PageInfo
-	technologies: Technology[]
+	pageInfo: PageInfo | null
 	experience: Experience[]
 	projects: Project[]
 	socials: Social[]
 }
 
-const Home = ({
-	experience,
-	pageInfo,
-	projects,
-	socials,
-	technologies
-}: Props) => {
+const initialProps: Props = {
+	pageInfo: null,
+	experience: [],
+	projects: [],
+	socials: []
+}
+
+const Home = () => {
+	const [{ experience, pageInfo, projects, socials }, setProps] =
+		useState<Props>(initialProps)
+
+	useEffect(() => {
+		loadProps().then((props) => setProps(props))
+	}, [])
+
 	return (
 		<div className='flex flex-col items-center justify-between bg-[#252525] text-[#F7F7F7] min-h-screen overflow-x-hidden'>
 			<Head>
@@ -38,11 +46,11 @@ const Home = ({
 			</Head>
 
 			<Header socials={socials} />
-			<Hero pageInfo={pageInfo} />
-			<About pageInfo={pageInfo} />
+			{pageInfo && <Hero pageInfo={pageInfo} />}
+			{pageInfo && <About pageInfo={pageInfo} />}
 			<WorkExperience experience={experience} />
 			<Projects projects={projects} />
-			<ContactMe pageInfo={pageInfo} />
+			{pageInfo && <ContactMe pageInfo={pageInfo} />}
 			<Footer />
 		</div>
 	)
@@ -50,47 +58,36 @@ const Home = ({
 
 export default Home
 
-export async function getStaticProps() {
+export async function loadProps(): Promise<Props> {
 	try {
 		const { get } = handleHttp()
 		const API_URL = process.env.NEXT_PUBLIC_BASE_URL
 
-		const [
-			{ pageInfo },
-			{ technologies },
-			{ projects },
-			{ experience },
-			{ socials }
-		] = await Promise.all([
-			get(`${API_URL}/api/page-info`),
-			get(`${API_URL}/api/technology`),
-			get(`${API_URL}/api/project`),
-			get(`${API_URL}/api/experience`),
-			get(`${API_URL}/api/social`)
-		])
+		const [{ pageInfo }, { projects }, { experience }, { socials }] =
+			await Promise.all([
+				get(`${API_URL}/api/page-info`),
+				get(`${API_URL}/api/project`),
+				get(`${API_URL}/api/experience`),
+				get(`${API_URL}/api/social`)
+			])
+
+		if (!pageInfo || !projects || !experience || !socials) {
+			throw new Error('Algunos datos son indefinidos o nulos')
+		}
 
 		return {
-			props: {
-				socials,
-				pageInfo,
-				technologies,
-				projects,
-				experience
-			},
-
-			revalidate: 10
+			socials,
+			pageInfo,
+			projects,
+			experience
 		}
 	} catch (error) {
 		console.log(error)
-
 		return {
-			props: {
-				pageInfo: [],
-				technologies: [],
-				experience: [],
-				projects: [],
-				socials: []
-			}
+			socials: [],
+			pageInfo: null,
+			projects: [],
+			experience: []
 		}
 	}
 }
