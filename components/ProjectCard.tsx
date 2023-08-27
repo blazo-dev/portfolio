@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import Link from 'next/link'
+import { SocialIcon } from 'react-social-icons'
 import { urlFor } from '../sanity'
 import { Project } from '../types'
-import { SocialIcon } from 'react-social-icons'
 
 interface Props extends Project {
 	numberProjects: number
