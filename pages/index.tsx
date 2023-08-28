@@ -61,14 +61,13 @@ export default Home
 export async function loadProps(): Promise<Props> {
 	try {
 		const { get } = handleHttp()
-		const API_URL = process.env.NEXT_PUBLIC_BASE_URL
 
 		const [{ pageInfo }, { projects }, { experience }, { socials }] =
 			await Promise.all([
-				get(`${API_URL}/api/page-info`),
-				get(`${API_URL}/api/project`),
-				get(`${API_URL}/api/experience`),
-				get(`${API_URL}/api/social`)
+				get('/api/page-info'),
+				get('/api/project'),
+				get('/api/experience'),
+				get('/api/social')
 			])
 
 		if (!pageInfo || !projects || !experience || !socials) {
