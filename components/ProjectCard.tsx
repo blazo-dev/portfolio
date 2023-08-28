@@ -58,8 +58,7 @@ function ProjectCard({
 						network='sharethis'
 						label='Live Demo'
 						target='_blank'
-						className='hover:text-[#F8C43A] transition-colors duration-500 cursor-pointer'
-					
+						className='hover:text-[#F8C43A] transition-colors duration-300 cursor-pointer'
 					/>
 					<SocialIcon
 						url={repository}
@@ -68,9 +67,8 @@ function ProjectCard({
 						bgColor='transparent'
 						label='Github Repository'
 						target='_blank'
-						className='hover:text-[#F8C43A] transition-colors duration-500 cursor-pointer'
+						className='hover:text-[#F8C43A] transition-colors duration-300 cursor-pointer'
 					/>
-					
 				</div>
 			</div>
 		</article>

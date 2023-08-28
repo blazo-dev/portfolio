@@ -11,7 +11,7 @@ function Footer() {
 					height={40}
 					src='/images/arrow-up.svg'
 					alt='Arrow Up'
-					className='bg-[#FAC213] rounded-full opacity-50 hover:opacity-100 cursor-pointer transition-opacity duration-500'
+					className='bg-[#FAC213] rounded-full opacity-50 hover:opacity-100 cursor-pointer transition-opacity duration-300'
 				/>
 			</Link>
 		</footer>

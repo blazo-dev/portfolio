@@ -8,11 +8,11 @@
     }
 
     .contact-link {
-        @apply flex gap-2 items-center justify-center text-lg sm:text-xl lg:text-2xl text-gray-500 hover:text-[#FAC213] transition-colors duration-500 rounded-sm;
+        @apply flex gap-2 items-center justify-center text-lg sm:text-xl lg:text-2xl text-gray-500 hover:text-[#FAC213] transition-colors duration-300 rounded-sm;
     }
 
     .contact-input {
-        @apply text-lg lg:text-2xl font-medium flex-1 bg-[#2b2b2b] text-gray-500 px-4 py-2 rounded-sm resize-none border-b border-b-gray-500 focus:border-b-[#F8C43A] focus:text-[#F8C43A] focus:outline-none hover:border-b-[#F8C43A] hover:text-[#F8C43A] transition-colors duration-500 placeholder-gray-500/50;
+        @apply text-lg lg:text-2xl font-medium flex-1 bg-[#2b2b2b] text-gray-500 px-4 py-2 rounded-sm resize-none border-b border-b-gray-500 focus:border-b-[#F8C43A] focus:text-[#F8C43A] focus:outline-none hover:border-b-[#F8C43A] hover:text-[#F8C43A] transition-colors duration-300 placeholder-gray-500/50;
     }
 
     .contact-input.error {
@@ -20,7 +20,7 @@
     }
 
     .contact-button {
-        @apply text-lg lg:text-2xl mt-4 sm:mt-0 font-semibold flex-1 bg-[#F8C43A] text-[#2b2b2b] px-4 py-2 rounded-sm  active:outline-none hover:bg-[#fab513] uppercase tracking-widest transition-colors duration-500;
+        @apply text-lg lg:text-2xl mt-4 sm:mt-0 font-semibold flex-1 bg-[#F8C43A] text-[#2b2b2b] px-4 py-2 rounded-sm  active:outline-none hover:bg-[#fab513] uppercase tracking-widest transition-colors duration-300;
     }
     .contact-button:disabled {
         @apply bg-[#F8C43A]/50
