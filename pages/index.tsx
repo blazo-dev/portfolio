@@ -6,6 +6,7 @@ import {
 	Header,
 	Hero,
 	Projects,
+	Skeleton,
 	WorkExperience
 } from '../components'
 import { handleHttp } from '../hooks'
@@ -29,18 +30,23 @@ const initialProps: Props = {
 const Home = () => {
 	const [{ experience, pageInfo, projects, socials }, setProps] =
 		useState<Props>(initialProps)
+	const [loading, setLoading] = useState<boolean>(true)
 
 	useEffect(() => {
-		loadProps().then((props) => setProps(props))
+		loadProps()
+			.then((props) => setProps(props))
+			.finally(() => setLoading(false))
 	}, [])
 
-	return (
-		<div className='flex flex-col items-center justify-between bg-[#252525] text-[#F7F7F7] min-h-screen overflow-x-hidden'>
+	return loading ? (
+		<Skeleton />
+	) : (
+		<main className='flex flex-col items-center justify-between bg-[#252525] text-[#F7F7F7] min-h-screen overflow-x-hidden'>
 			<Head>
-				<title>Bryan&#39;s Personal Website</title>
+				<title>Bryan&#39;s Portfolio</title>
 				<meta
 					name='description'
-					content='Personal website for Bryan Lazo fullstack developer'
+					content='Bryan Lazo is a Front End Developer'
 				/>
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
@@ -52,7 +58,7 @@ const Home = () => {
 			<Projects projects={projects} />
 			{pageInfo && <ContactMe pageInfo={pageInfo} />}
 			<Footer />
-		</div>
+		</main>
 	)
 }
 

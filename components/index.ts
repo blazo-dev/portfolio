@@ -7,5 +7,6 @@ export { default as Header } from './Header';
 export { default as Hero } from './Hero';
 export { default as ProjectCard } from './ProjectCard';
 export { default as Projects } from './Projects';
+export { default as Skeleton } from './Skeleton';
 export { default as WorkExperience } from './WorkExperience';
 export { default as WorkExperienceCard } from './WorkExperienceCard';
